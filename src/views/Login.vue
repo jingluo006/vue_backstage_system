@@ -28,14 +28,13 @@
 <script>
 // 导入axios
 import axios from '@/utils/requestLogin.js'
-
 export default {
   name: 'Login',
   data() {
     return {
       loginForm: {
-        username: '',
-        password: ''
+        username: 'admin',
+        password: '123456'
       },
       // 验证用户名和密码字段
       loginRules: {
@@ -81,7 +80,7 @@ export default {
 
 <style lang="less" scoped>
 #login {
-  background-color: #2b4b6b;
+  background-color: #93b5cf;
   height: 100%;
 }
 .loginContainer {
