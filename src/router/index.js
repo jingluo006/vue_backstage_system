@@ -1,16 +1,17 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+
 // 导入组件
-import Login from '@/views/Login.vue'
-import Home from '@/views/Home.vue'
-import Users from '@/views/User/User.vue'
-import Rights from '@/views/Rights/Rights.vue'
-import Roles from '@/views/Rights/Roles.vue'
-import Goods from '@/views/Goods/Goods.vue'
-import Params from '@/views/Goods/Params.vue'
-import Categories from '@/views/Goods/Categories.vue'
-import Orders from '@/views/Orders/Orders.vue'
-import Reports from '@/views/Reports/Reports.vue'
+const Home = () => import('@/views/Home.vue')
+const Login = () => import('@/views/Login.vue')
+const Users = () => import('@/views/User/User.vue')
+const Rights = () => import('@/views/Rights/Rights.vue')
+const Roles = () => import('@/views/Rights/Roles.vue')
+const Goods = () => import('@/views/Goods/Goods.vue')
+const Params = () => import('@/views/Goods/Params.vue')
+const Categories = () => import('@/views/Goods/Categories.vue')
+const Orders = () => import('@/views/Orders/Orders.vue')
+const Reports = () => import('@/views/Reports/Reports.vue')
 
 Vue.use(VueRouter)
 

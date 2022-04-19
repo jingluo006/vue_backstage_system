@@ -220,6 +220,12 @@ export default {
   methods: {
     // 获取用户列表数据
     async getUserListData() {
+      if (sessionStorage.getItem('pagenum')) {
+        this.userListParams.pagenum = sessionStorage.getItem('pagenum') * 1
+      }
+      if (sessionStorage.getItem('pagesize')) {
+        this.userListParams.pagesize = sessionStorage.getItem('pagesize') * 1
+      }
       const { data: res } = await axios.get('users', { params: this.userListParams })
       if (res.meta.status !== 200) return this.$message.error('用户列表获取失败')
       this.userListData = res.data.users
@@ -301,10 +307,12 @@ export default {
     // 用户列表页码大小发生改变时
     handleSizeChange(newSize) {
       this.userListParams.pagesize = newSize
+      sessionStorage.setItem('pagesize', newSize)
       this.getUserListData()
     },
     handleCurrentChange(newPage) {
       this.userListParams.pagenum = newPage
+      sessionStorage.setItem('pagenum', newPage)
       this.getUserListData()
     },
     // 用户状态发生改变时

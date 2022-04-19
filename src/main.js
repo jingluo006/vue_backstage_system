@@ -8,6 +8,9 @@ import '@/assets/css/global.css'
 import '@/plugins/element.js'
 // 导入axios
 import axios from '@/utils/requestLogin.js'
+import treeTable from 'vue-table-with-tree-grid'
+
+Vue.component('tree-table', treeTable)
 
 axios.interceptors.request.use((config) => {
   config.headers.Authorization = sessionStorage.getItem('token')

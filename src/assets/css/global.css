@@ -21,6 +21,11 @@ body,
   box-shadow: 0 0.5px 0.5px rgba(0, 0, 0, 0.25) !important;
 }
 
-.box-card .el-table {
+.box-card .el-table,
+.zk-table {
 	margin: 20px 0;
+}
+
+.el-cascader-menu {
+	max-height: 200px;
 }
