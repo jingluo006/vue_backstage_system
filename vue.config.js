@@ -1,3 +1,4 @@
+const debug = process.env.NODE_ENV !== 'production'
 module.exports = {
   lintOnSave: false,
   devServer: {
@@ -5,8 +6,10 @@ module.exports = {
     open: true
   },
   configureWebpack: (config) => {
-    // 调试JS
-    config.devtool = 'source-map'
+    if (debug) {
+      // 开发环境配置
+      config.devtool = 'source-map'
+    }
   },
   css: {
     // 查看CSS属于哪个css⽂件

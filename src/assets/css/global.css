@@ -29,3 +29,12 @@ body,
 .el-cascader-menu {
 	max-height: 200px;
 }
+/* 动态参数与属性的宽度 */
+.el-tabs__item.is-top:nth-child(2),
+.el-tabs__item.is-top:last-child {
+  width: 150px;
+  text-align: center;
+}
+.el-tabs__active-bar {
+  width: 150px;
+}
