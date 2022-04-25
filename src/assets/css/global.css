@@ -38,3 +38,8 @@ body,
 .el-tabs__active-bar {
   width: 150px;
 }
+
+/* 富文本编辑器 */
+.ql-container {
+	min-height: 200px;
+}
