@@ -10,7 +10,7 @@
     <!-- 卡片区域 -->
     <el-card class="box-card">
       <!-- echats图表 -->
-      <div id="report" style="width: 00px; height: 400px"></div>
+      <div id="report" style="width: 800px; height: 400px"></div>
     </el-card>
   </div>
 </template>
