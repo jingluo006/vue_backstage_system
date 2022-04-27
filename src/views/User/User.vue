@@ -317,11 +317,14 @@ export default {
     },
     // 用户状态发生改变时
     // 节流（如果要用防抖就用publicFn.debounce）
-    userStateChange: publicFn.throttle(async function (id, newState) {
+    async userStateChange(id, newState) {
+      await this.userStateChangeDebounce(id, newState)
+    },
+    userStateChangeDebounce: publicFn.debounce(async function (id, newState) {
       const { data: res } = await axios.put(`users/${id}/state/${newState}`)
-      if (res.meta.status !== 200) this.$message.error('状态修改失败')
+      if (res.meta.status !== 200) return this.$message.error('状态修改失败')
       this.$message.success('状态修改成功')
-    }, 3000),
+    }, 1000),
 
     // 分配权限
     async giveRight(role) {

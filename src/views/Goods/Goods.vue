@@ -93,14 +93,15 @@
 <script>
 // 导入axios
 import axios from '@/utils/requestLogin.js'
-const throttle = function (fn, delay) {
-  let begin = 0
+const debounce = function (fn, delay) {
+  let timer = null
   return function () {
-    const current = +new Date()
-    if (current - begin > delay) {
-      fn.apply(this)
-      begin = current
+    if (timer) {
+      clearTimeout(timer)
     }
+    timer = setTimeout(() => {
+      fn.apply(this)
+    }, delay)
   }
 }
 export default {
@@ -126,7 +127,7 @@ export default {
     // 搜索框输入后发送请求拿数据
     'queryInfo.query'(newVal) {
       this.queryInfo.query = newVal
-      throttle(this.getGoodsList, 3000)()
+      this.search()
     }
   },
   methods: {
@@ -137,7 +138,10 @@ export default {
       this.goodsList = res.data.goods
       this.total = res.data.total
     },
-
+    // 搜索（防抖）
+    search: debounce(async function () {
+      this.getGoodsList()
+    }, 1000),
     // 添加商品
     addGoods() {
       this.$router.push('/home/goods/add')
